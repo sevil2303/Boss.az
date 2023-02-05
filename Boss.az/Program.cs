@@ -18,6 +18,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace Boss.az
 {
+    
     class BossAz
     {
         public List<Human> Humans { get; set; }
@@ -95,6 +96,7 @@ namespace Boss.az
             SendMail sendMail = new SendMail();
             Employer employer = new Employer();
             BossAz boss = new BossAz();
+            Names names = new Names();
             var humans = new List<Human>
             {
                 new Worker
@@ -209,26 +211,8 @@ namespace Boss.az
             {
             MyBegin:
                 Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine();
-                Console.WriteLine("\t\t\t\t ██████╗   ██████╗  ███████╗ ███████╗    █████╗  ███████╗");
-                Console.WriteLine("\t\t\t\t ██╔══██╗ ██╔═══██╗ ██╔════╝ ██╔════╝   ██╔══██╗ ╚══███╔╝");
-                Console.WriteLine("\t\t\t\t ██████╔╝ ██║   ██║ ███████╗ ███████╗   ███████║   ███╔╝ ");
-                Console.WriteLine("\t\t\t\t ██╔══██╗ ██║   ██║ ╚════██║ ╚════██║   ██╔══██║  ███╔╝  ");
-                Console.WriteLine("\t\t\t\t ██████╔╝ ╚██████╔╝ ███████║ ███████║██╗██║  ██║ ███████╗");
-                Console.WriteLine("\t\t\t\t ╚═════╝   ╚═════╝  ╚══════╝ ╚══════╝╚═╝╚═╝  ╚═╝ ╚══════╝");
-                Console.ResetColor();
-                Console.WriteLine("\n\n\n\n\n");
-                Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine("\t\t\t\t\t\t╔═════════════════╗");
-                Console.WriteLine("\t\t\t\t\t\t║  1. Sign in     ║");
-                Console.WriteLine("\t\t\t\t\t\t╚═════════════════╝");
-                Console.WriteLine("\t\t\t\t\t\t╔═════════════════╗");
-                Console.WriteLine("\t\t\t\t\t\t║  2. Sign up     ║");
-                Console.WriteLine("\t\t\t\t\t\t╚═════════════════╝");
-                Console.WriteLine("\t\t\t\t\t\t╔═════════════════╗");
-                Console.WriteLine("\t\t\t\t\t\t║    3. Exit      ║");
-                Console.WriteLine("\t\t\t\t\t\t╚═════════════════╝");
+                names.Boss();
+                names.Menu();               
                 int begin = int.Parse(Console.ReadLine());
                 try
                 {
@@ -236,15 +220,7 @@ namespace Boss.az
                     {
                         writeAllText.WriteToText("User signed in to the system");
                         Console.Clear();
-                        Console.WriteLine();
-                        Console.WriteLine();
-                        Console.WriteLine("\t\t\t\t  ███████╗ ██╗  ██████╗  ███╗   ██╗    ██╗ ███╗   ██╗");
-                        Console.WriteLine("\t\t\t\t  ██╔════╝ ██║ ██╔════╝  ████╗  ██║    ██║ ████╗  ██║");
-                        Console.WriteLine("\t\t\t\t  ███████╗ ██║ ██║  ███╗ ██╔██╗ ██║    ██║ ██╔██╗ ██║");
-                        Console.WriteLine("\t\t\t\t  ╚════██║ ██║ ██║   ██║ ██║╚██╗██║    ██║ ██║╚██╗██║");
-                        Console.WriteLine("\t\t\t\t  ███████║ ██║ ╚██████╔╝ ██║ ╚████║    ██║ ██║ ╚████║");
-                        Console.WriteLine("\t\t\t\t  ╚══════╝ ╚═╝  ╚═════╝  ╚═╝  ╚═══╝    ╚═╝ ╚═╝  ╚═══╝");
-                        Console.WriteLine("\t\t\t\t                                                     ");
+                        names.SignIn();
                         Console.Write("\t\t\t\t\t   Enter your username : ");
                         string username = Console.ReadLine();
                         Console.Write("\t\t\t\t\t   Enter your password : ");
@@ -262,17 +238,7 @@ namespace Boss.az
                                 MyWorker:
                                     Console.Clear();
                                     Console.ForegroundColor = ConsoleColor.DarkYellow;
-                                    Console.WriteLine();
-                                    Console.WriteLine();
-                                    Console.WriteLine("\t\t   ██╗    ██╗ ██████╗ ██████╗ ██╗  ██╗███████╗██████╗     ███╗   ███╗███████╗███╗   ██╗██╗   ██╗");
-                                    Console.WriteLine("\t\t   ██║    ██║██╔═══██╗██╔══██╗██║ ██╔╝██╔════╝██╔══██╗    ████╗ ████║██╔════╝████╗  ██║██║   ██║");
-                                    Console.WriteLine("\t\t   ██║ █╗ ██║██║   ██║██████╔╝█████╔╝ █████╗  ██████╔╝    ██╔████╔██║█████╗  ██╔██╗ ██║██║   ██║");
-                                    Console.WriteLine("\t\t   ██║███╗██║██║   ██║██╔══██╗██╔═██╗ ██╔══╝  ██╔══██╗    ██║╚██╔╝██║██╔══╝  ██║╚██╗██║██║   ██║");
-                                    Console.WriteLine("\t\t   ╚███╔███╔╝╚██████╔╝██║  ██║██║  ██╗███████╗██║  ██║    ██║ ╚═╝ ██║███████╗██║ ╚████║╚██████╔╝");
-                                    Console.WriteLine("\t\t    ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝    ╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝ ╚═════╝ ");
-                                    Console.WriteLine("\t\t                                                                                                ");
-                                    Console.WriteLine();
-                                    Console.WriteLine();
+                                    names.WorkerMenu();
                                     Console.WriteLine("\t\t\t\t\t\t╔════════════════════════════╗");
                                     Console.WriteLine("\t\t\t\t\t\t║   1. Create your own CV    ║");
                                     Console.WriteLine("\t\t\t\t\t\t╚════════════════════════════╝");
@@ -306,15 +272,7 @@ namespace Boss.az
                                                 if (current.WorkerCv.Speciality == null)
                                                 {
                                                     Console.Clear();
-                                                    Console.WriteLine();
-                                                    Console.WriteLine();
-                                                    Console.WriteLine("\t\t\t    ██████╗██████╗ ███████╗ █████╗ ████████╗███████╗     ██████╗██╗   ██╗");
-                                                    Console.WriteLine("\t\t\t   ██╔════╝██╔══██╗██╔════╝██╔══██╗╚══██╔══╝██╔════╝    ██╔════╝██║   ██║");
-                                                    Console.WriteLine("\t\t\t   ██║     ██████╔╝█████╗  ███████║   ██║   █████╗      ██║     ██║   ██║");
-                                                    Console.WriteLine("\t\t\t   ██║     ██╔══██╗██╔══╝  ██╔══██║   ██║   ██╔══╝      ██║     ╚██╗ ██╔╝");
-                                                    Console.WriteLine("\t\t\t   ╚██████╗██║  ██║███████╗██║  ██║   ██║   ███████╗    ╚██████╗ ╚████╔╝ ");
-                                                    Console.WriteLine("\t\t\t    ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝     ╚═════╝  ╚═══╝  ");
-                                                    Console.WriteLine("\t\t\t                                                                         ");
+                                                    names.CreateCv();                                        
                                                     Console.Write("\t\t\t\t\t   Speciality : ");
                                                     string speciality = Console.ReadLine();
                                                     Console.Write("\t\t\t\t\t   School : ");
@@ -397,24 +355,11 @@ namespace Boss.az
                                         }
                                         else if (first == 2)
                                         {
-                                            if (current.WorkerCv != null)
+                                            if (current.WorkerCv.Speciality != null)
                                             {
                                                 Console.Clear();
-                                                Console.WriteLine();
-                                                Console.WriteLine();
-                                                Console.WriteLine("\t\t\t\t\t███████╗███████╗ █████╗ ██████╗  ██████╗██╗  ██╗");
-                                                Console.WriteLine("\t\t\t\t\t██╔════╝██╔════╝██╔══██╗██╔══██╗██╔════╝██║  ██║");
-                                                Console.WriteLine("\t\t\t\t\t███████╗█████╗  ███████║██████╔╝██║     ███████║");
-                                                Console.WriteLine("\t\t\t\t\t╚════██║██╔══╝  ██╔══██║██╔══██╗██║     ██╔══██║");
-                                                Console.WriteLine("\t\t\t\t\t███████║███████╗██║  ██║██║  ██║╚██████╗██║  ██║");
-                                                Console.WriteLine("\t\t\t\t\t╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝");
-                                                Console.WriteLine("\t\t\t\t\t                                                ");
-                                                Console.WriteLine("\t\t\t\t\t\t╔════════════════════════════╗");
-                                                Console.WriteLine("\t\t\t\t\t\t║     1. Show All Jobs       ║");
-                                                Console.WriteLine("\t\t\t\t\t\t╚════════════════════════════╝");
-                                                Console.WriteLine("\t\t\t\t\t\t╔════════════════════════════╗");
-                                                Console.WriteLine("\t\t\t\t\t\t║       2. Search job        ║");
-                                                Console.WriteLine("\t\t\t\t\t\t╚════════════════════════════╝");
+                                                names.Search();
+                                                names.SearchMenu();                       
                                                 int show = int.Parse(Console.ReadLine());
                                                 int myorder = 1;
                                                 Console.Clear();
@@ -537,15 +482,7 @@ namespace Boss.az
                                         {
                                             writeAllText.WriteToText($"{current.Name} {current.Surname} entered to notifications section");
                                             Console.Clear();
-                                            Console.WriteLine();
-                                            Console.WriteLine();
-                                            Console.WriteLine("\t\t███╗   ██╗ ██████╗ ████████╗██╗███████╗██╗ ██████╗ █████╗ ████████╗██╗ ██████╗ ███╗   ██╗███████╗");
-                                            Console.WriteLine("\t\t████╗  ██║██╔═══██╗╚══██╔══╝██║██╔════╝██║██╔════╝██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║██╔════╝");
-                                            Console.WriteLine("\t\t██╔██╗ ██║██║   ██║   ██║   ██║█████╗  ██║██║     ███████║   ██║   ██║██║   ██║██╔██╗ ██║███████╗");
-                                            Console.WriteLine("\t\t██║╚██╗██║██║   ██║   ██║   ██║██╔══╝  ██║██║     ██╔══██║   ██║   ██║██║   ██║██║╚██╗██║╚════██║");
-                                            Console.WriteLine("\t\t██║ ╚████║╚██████╔╝   ██║   ██║██║     ██║╚██████╗██║  ██║   ██║   ██║╚██████╔╝██║ ╚████║███████║");
-                                            Console.WriteLine("\t\t╚═╝  ╚═══╝ ╚═════╝    ╚═╝   ╚═╝╚═╝     ╚═╝ ╚═════╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝");
-                                            Console.WriteLine("\t\t                                                                                                 ");
+                                            names.Notifications();                                  
                                             if (current.Notifications.Number != 0)
                                             {
                                                 current.Notifications.Show();
@@ -564,15 +501,15 @@ namespace Boss.az
                                         {
                                             writeAllText.WriteToText($"{current.Name} {current.Surname} observed his/her cv");
                                             Console.Clear();
-                                            Console.WriteLine();
-                                            Console.WriteLine();
-                                            Console.WriteLine("\t\t\t\t██╗   ██╗  ██████╗  ██╗   ██╗ ██████╗      ██████╗ ██╗   ██╗");
-                                            Console.WriteLine("\t\t\t\t╚██╗ ██╔╝ ██╔═══██╗ ██║   ██║ ██╔══██╗    ██╔════╝ ██║   ██║");
-                                            Console.WriteLine("\t\t\t\t ╚████╔╝  ██║   ██║ ██║   ██║ ██████╔╝    ██║      ██║   ██║");
-                                            Console.WriteLine("\t\t\t\t  ╚██╔╝   ██║   ██║ ██║   ██║ ██╔══██╗    ██║      ╚██╗ ██╔╝");
-                                            Console.WriteLine("\t\t\t\t   ██║    ╚██████╔╝ ╚██████╔╝ ██║  ██║    ╚██████╗  ╚████╔╝ ");
-                                            Console.WriteLine("\t\t\t\t   ╚═╝     ╚═════╝   ╚═════╝  ╚═╝  ╚═╝     ╚═════╝   ╚═══╝ ");
-                                            Console.WriteLine();
+                                            names.YourCv();
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
                                             try
                                             {
                                                 if (current.WorkerCv.Speciality != null)
@@ -600,15 +537,7 @@ namespace Boss.az
                                         {
                                         MyUpdate:
                                             Console.Clear();
-                                            Console.WriteLine();
-                                            Console.WriteLine();
-                                            Console.WriteLine("\t\t\t██╗   ██╗██████╗ ██████╗  █████╗ ████████╗███████╗     ██████╗██╗   ██╗");
-                                            Console.WriteLine("\t\t\t██║   ██║██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██╔════╝    ██╔════╝██║   ██║");
-                                            Console.WriteLine("\t\t\t██║   ██║██████╔╝██║  ██║███████║   ██║   █████╗      ██║     ██║   ██║");
-                                            Console.WriteLine("\t\t\t██║   ██║██╔═══╝ ██║  ██║██╔══██║   ██║   ██╔══╝      ██║     ╚██╗ ██╔╝");
-                                            Console.WriteLine("\t\t\t╚██████╔╝██║     ██████╔╝██║  ██║   ██║   ███████╗    ╚██████╗ ╚████╔╝ ");
-                                            Console.WriteLine("\t\t\t ╚═════╝ ╚═╝     ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝     ╚═════╝  ╚═══╝  ");
-                                            Console.WriteLine();
+                                            names.UpdateCv();
                                             try
                                             {
                                                 if (current.WorkerCv.Speciality != null)
@@ -824,16 +753,7 @@ namespace Boss.az
                                                 writeAllText.WriteToText($"User is {myemployer.Name} {myemployer.Surname}");
                                             MyEmployer:
                                                 Console.Clear();
-                                                Console.WriteLine();
-                                                Console.WriteLine();
-                                                Console.WriteLine("    ███████╗███╗   ███╗██████╗ ██╗      ██████╗ ██╗   ██╗███████╗██████╗     ███╗   ███╗███████╗███╗   ██╗██╗   ██╗");
-                                                Console.WriteLine("    ██╔════╝████╗ ████║██╔══██╗██║     ██╔═══██╗╚██╗ ██╔╝██╔════╝██╔══██╗    ████╗ ████║██╔════╝████╗  ██║██║   ██║");
-                                                Console.WriteLine("    █████╗  ██╔████╔██║██████╔╝██║     ██║   ██║ ╚████╔╝ █████╗  ██████╔╝    ██╔████╔██║█████╗  ██╔██╗ ██║██║   ██║");
-                                                Console.WriteLine("    ██╔══╝  ██║╚██╔╝██║██╔═══╝ ██║     ██║   ██║  ╚██╔╝  ██╔══╝  ██╔══██╗    ██║╚██╔╝██║██╔══╝  ██║╚██╗██║██║   ██║");
-                                                Console.WriteLine("    ███████╗██║ ╚═╝ ██║██║     ███████╗╚██████╔╝   ██║   ███████╗██║  ██║    ██║ ╚═╝ ██║███████╗██║ ╚████║╚██████╔╝");
-                                                Console.WriteLine("    ╚══════╝╚═╝     ╚═╝╚═╝     ╚══════╝ ╚═════╝    ╚═╝   ╚══════╝╚═╝  ╚═╝    ╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝ ╚═════╝ ");
-                                                Console.WriteLine("                                                                                                                   ");
-                                                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                                                names.EmployerMenu();
                                                 Console.WriteLine();
                                                 Console.WriteLine();
                                                 Console.WriteLine();
@@ -857,16 +777,7 @@ namespace Boss.az
                                                     if (first == 1)
                                                     {
                                                         Console.Clear();
-                                                        Console.WriteLine();
-                                                        Console.WriteLine();
-                                                        Console.WriteLine("\t\t\t █████╗ ██████╗ ██████╗     ██╗   ██╗ █████╗  ██████╗ █████╗ ███╗   ██╗ ██████╗██╗   ██╗");
-                                                        Console.WriteLine("\t\t\t██╔══██╗██╔══██╗██╔══██╗    ██║   ██║██╔══██╗██╔════╝██╔══██╗████╗  ██║██╔════╝╚██╗ ██╔╝");
-                                                        Console.WriteLine("\t\t\t███████║██║  ██║██║  ██║    ██║   ██║███████║██║     ███████║██╔██╗ ██║██║      ╚████╔╝ ");
-                                                        Console.WriteLine("\t\t\t██╔══██║██║  ██║██║  ██║    ╚██╗ ██╔╝██╔══██║██║     ██╔══██║██║╚██╗██║██║       ╚██╔╝  ");
-                                                        Console.WriteLine("\t\t\t██║  ██║██████╔╝██████╔╝     ╚████╔╝ ██║  ██║╚██████╗██║  ██║██║ ╚████║╚██████╗   ██║   ");
-                                                        Console.WriteLine("\t\t\t╚═╝  ╚═╝╚═════╝ ╚═════╝       ╚═══╝  ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝   ╚═╝   ");
-                                                        Console.WriteLine();
-                                                        Console.WriteLine();
+                                                        names.AddVacancy();
                                                         Console.Write("\t\t\t\t\t        Enter Company Name :");
                                                         string companyName = Console.ReadLine();
                                                         Console.Write("\t\t\t\t\t        Enter Speciality : ");
@@ -905,14 +816,7 @@ namespace Boss.az
                                                     else if (first == 2)
                                                     {
                                                         Console.Clear();
-                                                        Console.WriteLine();
-                                                        Console.WriteLine();
-                                                        Console.WriteLine("  \t\t     █████╗ ██████╗ ██████╗ ██╗     ██╗ ██████╗ █████╗ ███╗   ██╗████████╗███████╗");
-                                                        Console.WriteLine("  \t\t    ██╔══██╗██╔══██╗██╔══██╗██║     ██║██╔════╝██╔══██╗████╗  ██║╚══██╔══╝██╔════╝");
-                                                        Console.WriteLine("  \t\t    ███████║██████╔╝██████╔╝██║     ██║██║     ███████║██╔██╗ ██║   ██║   ███████╗");
-                                                        Console.WriteLine("  \t\t    ██╔══██║██╔═══╝ ██╔═══╝ ██║     ██║██║     ██╔══██║██║╚██╗██║   ██║   ╚════██║");
-                                                        Console.WriteLine("  \t\t    ██║  ██║██║     ██║     ███████╗██║╚██████╗██║  ██║██║ ╚████║   ██║   ███████║");
-                                                        Console.WriteLine("  \t\t    ╚═╝  ╚═╝╚═╝     ╚═╝     ╚══════╝╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝");
+                                                        names.Applicants();
                                                         myemployer.Notifications.Number = 0;
                                                         boss.WriteEmployer();
                                                         for (int m = 0; m < myemployer.Applicants.Count; m++)
@@ -971,9 +875,9 @@ namespace Boss.az
                                                                                                             boss.Employers[b].Applicants[c].Notifications.Message = $"You have been accepted to {currentvacancy.CompanyName} Position: {currentspeciality}";
                                                                                                             sendMail.SendEmail("vstudio7377@gmail.com", "vbsqxayxsgjktzbn", "Job application response", $"You have been accepted to {currentvacancy.CompanyName} Position: {currentspeciality}");
                                                                                                             boss.WriteEmployer();
+                                                                                                            writeAllText.WriteToText($"{myemployer.Name} {myemployer.Surname} accepted {boss.Employers[b].Applicants[c].Name} to {currentvacancy.CompanyName} as {currentvacancy.Speciality}");
                                                                                                             boss.Employers[b].Applicants.Remove(boss.Employers[b].Applicants[c]);
                                                                                                             boss.Employers[b].ApplicantVacancy.Remove(currentvacancy);
-                                                                                                            writeAllText.WriteToText($"{myemployer.Name} {myemployer.Surname} accepted {boss.Employers[b].Applicants[c]} to {currentvacancy.CompanyName} as {currentvacancy.Speciality}");
                                                                                                             Console.WriteLine("\t\t\t\t\t   Message is sent");
                                                                                                             Thread.Sleep(2000);
                                                                                                             goto MyEmployer;
@@ -984,9 +888,9 @@ namespace Boss.az
                                                                                                             boss.Employers[b].Applicants[c].Notifications.Message = $"You have been rejected from {currentvacancy.CompanyName} Position: {currentspeciality}";
                                                                                                             sendMail.SendEmail("vstudio7377@gmail.com", "vbsqxayxsgjktzbn", "Job application response", $"You have been rejected from {currentvacancy.CompanyName} Position: {currentspeciality}");
                                                                                                             boss.WriteEmployer();
+                                                                                                            writeAllText.WriteToText($"{myemployer.Name} {myemployer.Surname} rejected {boss.Employers[b].Applicants[c].Name} from {currentvacancy.CompanyName}. Position is :  {currentvacancy.Speciality}");
                                                                                                             boss.Employers[b].Applicants.Remove(boss.Employers[b].Applicants[c]);
                                                                                                             boss.Employers[b].ApplicantVacancy.Remove(currentvacancy);
-                                                                                                            writeAllText.WriteToText($"{myemployer.Name} {myemployer.Surname} rejected {boss.Employers[b].Applicants[c]} from {currentvacancy.CompanyName}. Position is :  {currentvacancy.Speciality}");
                                                                                                             Console.WriteLine("\t\t\t\t\t   Message is sent");
                                                                                                             Thread.Sleep(2000);
                                                                                                             goto MyEmployer;
@@ -1001,7 +905,6 @@ namespace Boss.az
                                                                                                         Console.ForegroundColor = ConsoleColor.Red;
                                                                                                         Console.WriteLine(ex.Message);
                                                                                                         Thread.Sleep(1000);
-                                                                                                        Console.ResetColor();
                                                                                                         Console.Clear();
                                                                                                         goto CheckAccept;
                                                                                                     }
@@ -1131,15 +1034,7 @@ namespace Boss.az
                         writeAllText.WriteToText("User signed up ");
                     SignUp:
                         Console.Clear();
-                        Console.WriteLine();
-                        Console.WriteLine();
-                        Console.WriteLine("\t\t\t\t  ███████╗ ██╗  ██████╗  ███╗   ██╗    ██╗   ██╗ ██████╗ ");
-                        Console.WriteLine("\t\t\t\t  ██╔════╝ ██║ ██╔════╝  ████╗  ██║    ██║   ██║ ██╔══██╗");
-                        Console.WriteLine("\t\t\t\t  ███████╗ ██║ ██║  ███╗ ██╔██╗ ██║    ██║   ██║ ██████╔╝");
-                        Console.WriteLine("\t\t\t\t  ╚════██║ ██║ ██║   ██║ ██║╚██╗██║    ██║   ██║ ██╔═══╝ ");
-                        Console.WriteLine("\t\t\t\t  ███████║ ██║ ╚██████╔╝ ██║ ╚████║    ╚██████╔╝ ██║     ");
-                        Console.WriteLine("\t\t\t\t  ╚══════╝ ╚═╝  ╚═════╝  ╚═╝  ╚═══╝     ╚═════╝  ╚═╝     ");
-                        Console.WriteLine("\t\t\t\t                                                         ");
+                        names.SignUp();
                         Console.WriteLine("\t\t\t\t\t\t╔═════════════════╗");
                         Console.WriteLine("\t\t\t\t\t\t║   1. Worker     ║");
                         Console.WriteLine("\t\t\t\t\t\t╚═════════════════╝");

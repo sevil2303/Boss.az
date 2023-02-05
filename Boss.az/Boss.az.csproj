@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cv.cs" />
+    <Compile Include="Design.cs" />
     <Compile Include="Humans.cs" />
     <Compile Include="LogTxt.cs" />
     <Compile Include="Notification.cs" />
